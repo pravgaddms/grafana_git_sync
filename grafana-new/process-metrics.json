@@ -1,5 +1,5 @@
 {
-  "apiVersion": "dashboard.grafana.app/v0alpha1",
+  "apiVersion": "dashboard.grafana.app/v1beta1",
   "kind": "Dashboard",
   "metadata": {
     "name": "ozcwUlJ7k"
@@ -9,7 +9,9 @@
       "list": [
         {
           "builtIn": 1,
-          "datasource": "-- Grafana --",
+          "datasource": {
+            "uid": "-- Grafana --"
+          },
           "enable": true,
           "hide": true,
           "iconColor": "rgba(0, 211, 255, 1)",
@@ -27,19 +29,39 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 0,
-    "links": [],
-    "liveNow": false,
+    "links": [
+      {
+        "asDropdown": false,
+        "icon": "external link",
+        "includeVars": false,
+        "keepTime": false,
+        "tags": [],
+        "targetBlank": true,
+        "title": "Source (GitHub)",
+        "tooltip": "View source file in repository",
+        "type": "link",
+        "url": "https://github.com/pravgaddms/grafana_git_sync/blob/main/grafana-new/process-metrics.json"
+      }
+    ],
     "panels": [
       {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
         "fieldConfig": {
           "defaults": {
             "color": {
               "mode": "palette-classic"
             },
             "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
               "axisLabel": "",
               "axisPlacement": "auto",
               "barAlignment": 0,
+              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 11,
               "gradientMode": "none",
@@ -48,6 +70,7 @@
                 "tooltip": false,
                 "viz": false
               },
+              "insertNulls": false,
               "lineInterpolation": "linear",
               "lineWidth": 3,
               "pointSize": 5,
@@ -55,6 +78,7 @@
                 "type": "linear"
               },
               "showPoints": "auto",
+              "showValues": false,
               "spanNulls": false,
               "stacking": {
                 "group": "A",
@@ -70,7 +94,7 @@
               "steps": [
                 {
                   "color": "green",
-                  "value": null
+                  "value": 0
                 },
                 {
                   "color": "red",
@@ -92,12 +116,16 @@
           "legend": {
             "calcs": [],
             "displayMode": "list",
-            "placement": "bottom"
+            "placement": "bottom",
+            "showLegend": true
           },
           "tooltip": {
-            "mode": "single"
+            "hideZeros": false,
+            "mode": "single",
+            "sort": "none"
           }
         },
+        "pluginVersion": "12.4.0-19913286788",
         "targets": [
           {
             "datasource": {
@@ -115,15 +143,23 @@
         "type": "timeseries"
       },
       {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
         "fieldConfig": {
           "defaults": {
             "color": {
               "mode": "palette-classic"
             },
             "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
               "axisLabel": "",
               "axisPlacement": "auto",
               "barAlignment": 0,
+              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 22,
               "gradientMode": "none",
@@ -132,6 +168,7 @@
                 "tooltip": false,
                 "viz": false
               },
+              "insertNulls": false,
               "lineInterpolation": "smooth",
               "lineWidth": 3,
               "pointSize": 5,
@@ -139,6 +176,7 @@
                 "type": "linear"
               },
               "showPoints": "auto",
+              "showValues": false,
               "spanNulls": false,
               "stacking": {
                 "group": "A",
@@ -155,7 +193,7 @@
               "steps": [
                 {
                   "color": "green",
-                  "value": null
+                  "value": 0
                 },
                 {
                   "color": "red",
@@ -177,12 +215,16 @@
           "legend": {
             "calcs": [],
             "displayMode": "list",
-            "placement": "bottom"
+            "placement": "bottom",
+            "showLegend": true
           },
           "tooltip": {
-            "mode": "single"
+            "hideZeros": false,
+            "mode": "single",
+            "sort": "none"
           }
         },
+        "pluginVersion": "12.4.0-19913286788",
         "targets": [
           {
             "datasource": {
@@ -191,7 +233,6 @@
             },
             "exemplar": true,
             "expr": "topk(10, cpu_usage)",
-            "hide": false,
             "interval": "",
             "legendFormat": "",
             "refId": "B"
@@ -201,9 +242,9 @@
         "type": "timeseries"
       }
     ],
+    "preload": false,
     "refresh": "",
-    "schemaVersion": 34,
-    "style": "dark",
+    "schemaVersion": 42,
     "tags": [],
     "templating": {
       "list": []
@@ -213,8 +254,7 @@
       "to": "now"
     },
     "timepicker": {},
-    "timezone": "",
-    "title": "Process Metrics",
-    "weekStart": ""
+    "timezone": "browser",
+    "title": "Process Metrics"
   }
 }
